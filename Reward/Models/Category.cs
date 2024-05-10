@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Reward.Models
 {
@@ -7,8 +8,12 @@ namespace Reward.Models
         [Key]
         public int ID { get; set; }
         [Required]
+        [MaxLength(30)]
+        [DisplayName("Category Name")]
         public string? Name { get; set; }
         [Required]
+        [DisplayName("Display Order")]
+        [Range (1,100,ErrorMessage="Display Order Must be between 1-100")]
         public int DisplayOrder { get; set; }
     }
 }
